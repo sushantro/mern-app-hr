@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="password" id="p">
+    <button>submit</button>
+    <script>
+
+    
+
+    function checkPasswordValidation(value) {
+        const isWhitespace = /^(?=.*\s)/;
+        if (isWhitespace.test(value)) {
+          return "Password must not contain Whitespaces.";
+        }
+    
+    
+        const isContainsUppercase = /^(?=.*[A-Z])/;
+        if (!isContainsUppercase.test(value)) {
+          return "Password must have at least one Uppercase Character.";
+        }
+    
+    
+        const isContainsLowercase = /^(?=.*[a-z])/;
+        if (!isContainsLowercase.test(value)) {
+          return "Password must have at least one Lowercase Character.";
+        }
+    
+    
+        const isContainsNumber = /^(?=.*[0-9])/;
+        if (!isContainsNumber.test(value)) {
+          return "Password must contain at least one Digit.";
+        }
+    
+    
+        const isContainsSymbol =
+          /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])/;
+        if (!isContainsSymbol.test(value)) {
+          return "Password must contain at least one Special Symbol.";
+        }
+    
+    
+        const isValidLength = /^.{10,16}$/;
+        if (!isValidLength.test(value)) {
+          return "Password must be 10-16 Characters Long.";
+        }
+      
+      return null;
+    };
+    
+    
+    
+    const password1 = document.getElementById('p').value;
+   
+    
+    
+    const fa=checkPasswordValidation(password1); 
+    console.log(fa) //Password must contain at least one Digit.
+    // console.log(checkPasswordValidation(password2));  //null
+
+
+
+    </script>
+</body>
+</html>
