@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    {{!-- <img src="data:image/jpeg;base64,<%=found.img.toString('base64')%>"> --}}
+    {{!-- <img src="{{this.ComplianceDocuments}}.toString('base64')"> --}}
+    {{!--
+    <img src='data:image/(contentType);base64,(buffer).toString("base64")'> --}}
+    {{!-- <img src="data:uploads/'image/png/pdf/excel';base64{{this.ComplianceDocuments}}.toString(" base64")"> --}}
+   {{#each joc}}
+    {{!-- <img src="data:uploads/'image/png/pdf/excel';base64{{this.ComplianceDocuments}}.toString(" base64")"> --}}
+  <img src="{{this.Compliance}}">
+{{/each}}
+</html>

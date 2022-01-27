@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <!---<title> Responsive Registration Form | CodingLab </title>--->
+  <link rel="stylesheet" href="ank.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  {{!--
+  <script type="text/javascript"
+    src="C:\Users\Administrator\Desktop\project1\mernbackend\templates\views\tot.js"></script> --}}
+
+
+
+
+
+
+
+
+
+
+</head>
+<script>
+
+
+  // for sow
+
+  $(document).ready(function () {
+    var max_fields = 1000; //maximum input boxes allowed
+    var wrapper = $(".input"); //Fields wrapper
+    var add_button = $(".japa"); //Add button ID
+
+    var x = 1; //initlal text box count
+
+
+    $(add_button).click(function (e) { //on add input button click
+      e.preventDefault();
+      if (x < max_fields) { //max input box allowed
+
+        //text box increment
+        $(wrapper).append('<div>   <textarea name="Sow">data analyst</textarea> <a href="#" class="remove_field">REMOVE</a></div>'); //add input box
+        x++;
+
+      }
+    });
+
+    $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+
+      e.preventDefault();
+      $(this).parent('div').remove();
+      x--;
+    })
+  });
+
+
+  // for complianc document
+
+  $(document).ready(function () {
+    var max_fields = 1000; //maximum input boxes allowed
+    var wrapper = $(".input-1"); //Fields wrapper
+    var add_button = $(".japa-1"); //Add button ID
+
+    var x = 1; //initlal text box count
+
+
+    $(add_button).click(function (e) { //on add input button click
+      e.preventDefault();
+      if (x < max_fields) { //max input box allowed
+
+        //text box increment
+        $(wrapper).append('<div><textarea name="Compliance">data analyst</textarea> <a href="#" class="remove_field">REMOVE</a></div>'); //add input box
+        x++;
+
+      }
+    });
+
+    $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+
+      e.preventDefault();
+      $(this).parent('div').remove();
+      x--;
+    })
+  });
+
+
+
+  //for po document
+
+  $(document).ready(function () {
+    var max_fields = 1000; //maximum input boxes allowed
+    var wrapper = $(".input-box-2"); //Fields wrapper
+    var add_button = $(".japa-2"); //Add button ID
+
+    var x = 1; //initlal text box count
+
+
+    $(add_button).click(function (e) { //on add input button click
+      e.preventDefault();
+      if (x < max_fields) { //max input box allowed
+
+        //text box increment
+        $(wrapper).append('<div><textarea name="Poterms">data analyst</textarea> <a href="#" class="remove_field">REMOVE</a></div>'); //add input box
+        x++;
+
+      }
+    });
+
+    $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+
+      e.preventDefault();
+      $(this).parent('div').remove();
+      x--;
+    })
+  });
+</script>
+
+<body>
+  <div class="container">
+    <div class="title">Project Details Page</div>
+    <div class="content">
+      <form action="/prodet" method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Project Start date:</span>
+            <p><input type="text" name="fromDate" id="fromDate" placeholder="yyyy-mm-dd" value="1999-02-28" /></p>
+          </div>
+          <div class="input-box">
+            <span class="details">Project End date:</span>
+            <p> <input type="text" name="toDate" id="toDate" placeholder="yyyy-mm-dd" value="2000-03-01" /></p>
+            <p><input type="button" name="calculate" value="Calculate" onclick="cal()" /></p>
+            <p />
+
+
+
+
+            {{!-- <input name="Estart" type="text" class="form-control" id="laaa" value="" onclick="difff()"> --}}
+          </div>
+          <div class="input-box">
+            <span class="details">PO Number:</span>
+            <input name="Ponum" type="text" placeholder="Enter your Po No">
+          </div>
+          <div class="input-box">
+            <span class="details">PO date:</span>
+            <input name="Podate" type="date" class="form-control" id="email">
+          </div>
+          <div class="input">
+            <span class="details">SOW:</span>
+            <textarea name="Sow">data analyst</textarea>
+            <button class="japa">+</button>
+          </div>
+          <div class="input-box-2">
+            <span class="details">PO Terms and Conditions:</span>
+            <textarea type="text" name="Poterms">data analyst</textarea>
+            <button class="japa-2">+</button>
+          </div>
+          <div class="input-1">
+            <span class="details">Compliance Document:</span>
+            <textarea name="Compliance" id="john">data analyst</textarea>
+            <button class="japa-1">+</button>
+          </div>
+          <div class="input-box">
+            <span class="details">Payment Cycle:</span>
+            <select name="Paycycle" class="form-control-md" required>
+              <option selected>Choose...</option>
+              <option>Monthly</option>
+              <option>Quarterly</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Rate type:</span>
+            <select name="Rate" class="form-control-md" required>
+              <option selected>Choose...</option>
+              <option>Resource Wise</option>
+              <option>Man Hours</option>
+              <option>Man Days</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">EmpID:</span>
+            <input type="text" name="EmpID" id="result">
+          </div>
+        </div>
+        <div class="kal">
+          <label>Duration</label>
+          <input type="text" name="Duration" id="bhas"></span>
+
+        </div>
+
+
+        <div class="input-box">
+          <span class="details">Projects details:</span>
+          <select name="Projects" class="form-control-md" required>
+              {{#each kl}}
+            <option>{{this.total}}</option>
+            {{/each}}
+            {{!-- <option>I Nach</option>
+            <option>I AMS</option>
+            <option>I Oms</option>
+            <option>I Lms</option>
+            <option>Finacle customization</option>
+            <option>Feba</option>
+            <option>I CCM</option>
+            <option>I Recon</option>
+            <option>I AML</option>
+            <option>I MBML</option>
+            <option>I BUS</option>
+            <option>HRMS</option> --}}
+            {{!-- <option>HRMS</option> --}}
+          </select>
+          <div class="button">
+            <input type="submit" value="Submit" onclick="pass1();" />
+
+          </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    document.getElementById("result").value = localStorage.getItem("textvalue");
+
+    function pass1() {
+      var id = document.getElementById("bhas").value;
+
+      console.log(id)
+
+      localStorage.setItem("dba", id);
+
+      const ja = window.localStorage
+      console.log(ja)
+      return false;
+    }
+
+    /* function difff() {
+       const g = document.getElementById('emailp').value
+       const d = document.getElementById('laaa').value
+ 
+       dt1 = new Date(g);
+       dt2 = new Date(d);
+       /* if (dt1 > dt2) {
+          alert("plz enter valid date")
+        } else {*/
+
+
+    // var time = (dt2.getTime() - dt1.getTime()) / 1000;
+    //console.log(time)
+
+    // var time = (dt2.getUTCDate() - dt1.getUTCDate()) / 1000;
+    //var Year = Math.abs(Math.round((time / (60 * 60 * 24)) / 365.25));
+    //var Year = Math.abs(Math.round((time / (1000*60 * 60 * 24)) / 365.25));
+    //console.log(Year)
+    // var Month = Math.abs(Math.round(time / (60 * 60 * 24 * 7 * 4)));
+
+    // var days=Math.round(Math.abs(time/(24 * 60 * 60 * 1000)))
+    // console.log(days)
+
+
+
+    /* const ONE_DAY = 1000 * 60 * 60 * 24;
+     const differenceMs = Math.abs(dt1 - dt2);
+     const bhas = Math.round(differenceMs / ONE_DAY);
+
+
+
+
+
+
+
+
+     var Month = Math.ceil(time / (1000 * 3600 * 24));  //month utiliazed   
+     console.log(Month)
+
+
+
+     /* var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+      diff /= (60 * 60 * 24);
+      const dab= Math.abs(Math.round(diff / 365.25));*/
+
+
+
+
+
+
+
+
+
+    //const da = `  ${Year}Year ${Month}Months ${bhas} Total no of Days worked in project `
+
+    //const kla = document.getElementById("losse").value = da;
+    // console.log(kla);
+
+
+    // }
+
+
+
+
+
+
+
+
+
+    //const da = `  ${Year}Year ${Month}Months ${bhas}Days worked in project `
+
+    //const va = document.getElementById("losse").value = mc;
+    //console.log(va);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function cal() {
+      var fromDate = document.getElementById('fromDate').value;
+      var toDate = document.getElementById('toDate').value;
+
+      try {
+        document.getElementById('result').innerHTML = '';
+
+        var result = getDateDifference(new Date(fromDate), new Date(toDate));
+
+        if (result && !isNaN(result.years)) {
+          // document.getElementById('result').innerHTML =
+          document.getElementById('bhas').value =
+
+            result.years + ' year' + (result.years == 1 ? ' ' : 's ') +
+            result.months + ' month' + (result.months == 1 ? ' ' : 's ') + 'and ' +
+            result.days + ' day' + (result.days == 1 ? '' : 's');
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function getDateDifference(startDate, endDate) {
+      if (startDate > endDate) {
+      //  console.error('Start date must be before end date');
+      alert('Start date must be before end date')
+        return null;
+      }
+      var startYear = startDate.getFullYear();
+      var startMonth = startDate.getMonth();
+      var startDay = startDate.getDate();
+
+      var endYear = endDate.getFullYear();
+      var endMonth = endDate.getMonth();
+      var endDay = endDate.getDate();
+
+      // We calculate February based on end year as it might be a leep year which might influence the number of days.
+      var february = (endYear % 4 == 0 && endYear % 100 != 0) || endYear % 400 == 0 ? 29 : 28;
+      var daysOfMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+      var startDateNotPassedInEndYear = (endMonth < startMonth) || endMonth == startMonth && endDay < startDay;
+      var years = endYear - startYear - (startDateNotPassedInEndYear ? 1 : 0);
+
+      var months = (12 + endMonth - startMonth - (endDay < startDay ? 1 : 0)) % 12;
+
+      // (12 + ...) % 12 makes sure index is always between 0 and 11
+      var days = startDay <= endDay ? endDay - startDay : daysOfMonth[(12 + endMonth - 1) % 12] - startDay + endDay;
+
+      return {
+        years: years,
+        months: months,
+        days: days
+      };
+    }
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

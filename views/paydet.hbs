@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <!---<title> Responsive Registration  </title>--->
+  <link rel="stylesheet" href="ank.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Payment Details Page</div>
+    <div class="content">
+      <form action="/paydet/:EmpID" method="post" method="get" enctype="multipart/form-data">
+      {{!-- <form action="/paydet/lake/EmpID" method="post" method="get" enctype="multipart/form-data"> --}}
+        <div class="user-details">
+          {{#each doc}}
+          <div class="input-box">
+
+            <span class="details">Project Duration:</span>
+            <input name="ProDura" id="dur" value="{{this.Duration}}" type="type">
+            {{/each}}
+          </div>
+
+
+
+
+
+          {{#each doc}}
+          <div class="input-box">
+            <span class="details">PO Details:</span>
+
+            <input name="PoDe" type="text" value="{{this.Ponum}}" class="form-control">
+            {{/each}}
+          </div>
+
+          <div class="input-box">
+            <span class="details">Compliance:</span>
+            <input name="Compliance" id="lala" type="file" placeholder="Provide  documents">
+
+
+          </div>
+
+          {{!-- <div class="input-box">
+            <span class="details">emp</span>
+            <input name="RateCli" type="text" class="form-control" id="emp">
+          </div> --}}
+
+          
+          <div class="input-box">
+            <span class="details">Rate from client:</span>
+            <input name="RateCli" type="text"  class="form-control" id="email">
+            
+          </div>
+      
+          <div class="input">
+            {{#each doc}}
+            {{!-- <span class="details">Project Selection:</span>
+            <select name="ProSel" class="form-control-md" required>
+              <option selected></option>
+           
+
+              <option>bbb</option>
+              <option>aaaa</option>
+            </select> --}}
+            <label>Project selected</label>
+            <input type="text" value="{{this.Projects}}" name="ProSel">
+            {{/each}}
+          </div>
+          <div class="input-box-2">
+            <span class="details">Billing date:</span>
+            <textarea name="BiDa">daaa analyst</textarea>
+            <button class="japa-2">+</button>
+          </div>
+          <div class="input-1">
+            <span class="details">Billing cycle:</span>
+            <input name="BiCy" type="date" class="form-control" id="email">
+          </div>
+          <div class="input-box">
+            <span class="details">Payment Cycle:</span>
+            <select name="PyCy" class="form-control-md" required>
+              <option selected>Choose...</option>
+              <option>Monthly</option>
+              <option>Quarterly</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Payment Status:</span>
+            <select name="PySt" class="form-control-md" required>
+              <option selected></option>
+              <option>Not submitted</option>
+              <option>Pending</option>
+              <option>Submitted</option>
+              <option>Received</option>
+            </select>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

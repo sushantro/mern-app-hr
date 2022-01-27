@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+      /*  .container {
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+}*/
+
+
+
+    </style>
+    <div class="logo">
+        <img src="" alt="">
+    </div>
+    <div class="container">
+        <h1 class="label">User Login</h1>
+        <form class="login_form" action="/Login" method="post" name="form">
+            <div class="font">
+                <label>EmpID</label>
+                <input autocomplete="off" type="text" name="EmpID">
+            </div>
+            <div class="font font2">
+                <label>Password</label>
+                <input type="password" autocomplete="off"  name="Password" id="Password">
+
+                  <i class="bi bi-eye-slash" id="togglePassword"></i>
+            </div>
+            <button type="submit">Login</button>
+            <a href="/forgot">Forgot Password</a>
+            {{!-- <a href="/login">U HAVENT REGISTERED SO PLZ REGISTER FAST</a> --}}
+        </form>
+    </div>
+
+</body>
+</html>

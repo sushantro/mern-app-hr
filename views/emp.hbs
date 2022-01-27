@@ -1,0 +1,196 @@
+
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <!---<title> Responsive Registration Form | CodingLab </title>--->
+  <link rel="stylesheet" href="ank.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<script>
+  $(document).ready(function () {
+    var max_fields = 1000; //maximum input boxes allowed
+    var wrapper = $(".input_fields_wrap"); //Fields wrapper
+    var add_button = $(".add_field_button"); //Add button ID
+
+   
+
+
+
+   
+   
+
+
+
+    var x = 1; //initlal text box count
+
+
+    $(add_button).click(function (e) { //on add input button click
+      e.preventDefault();
+      if (x < max_fields) { //max input box allowed
+       
+        //text box increment
+        $(wrapper).append('<div><input id="ja" type="date" name="mytext"> <input id="ba" type="text" name="mytext" onclick="return CTC()"/><a href="#" class="remove_field">REMOVE</a></div>'); //add input box
+    
+        
+       
+        x++ ;
+        
+
+
+      }
+    });
+
+    $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+              
+      e.preventDefault();
+      
+      $(this).parent('div').remove();
+    
+      x--;
+    })
+  });
+
+
+
+
+  $(document).ready(function () {
+    var max_fields = 1000; //maximum input boxes allowed
+    var wrapper = $(".input"); //Fields wrapper
+    var add_button = $(".kana"); //Add button ID
+    
+
+
+
+
+
+
+    var x = 1; //initlal text box count
+
+
+    $(add_button).click(function (e) { //on add input button click
+      e.preventDefault();
+      if (x < max_fields) { //max input box allowed
+
+        //text box increment
+        $(wrapper).append('<div> <textarea name="Skill" >data analyst</textarea> <a href="#" class="remove_field">REMOVE</a></div>'); //add input box
+        x++;
+
+      }
+    });
+
+    $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+
+      e.preventDefault();
+      $(this).parent('div').remove();
+      x--;
+    })
+  });
+
+
+
+</script>
+
+<body>
+  <div class="container">
+    <div class="title">Employee Details</div>
+    <div class="content">
+      <form action="/emp" method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Emp-code:</span>
+            <input name="EmpID" id="EID" type="text" placeholder="Enter your emp code" >
+          </div>
+          <div class="input-box">
+            <span class="details">Employee Name:</span>
+            <input name="Name" type="text" placeholder="Enter your name" >
+          </div>
+          <div class="input-box">
+            <span class="details">Joining Date:</span>
+            <input type="date" class="form-control-md" id="email" placeholder="MM/DD/yyyy" name="Joining" >
+          </div>
+          <div class="input-box">
+            <span class="details">Grade:</span>
+            <select name="Grade" class="form-control-md" >
+              <option selected>Choose...</option>
+              <option>MT</option>
+
+              <option>J1</option>
+              <option>J2</option>
+              <option>J3</option>
+              <option>J4</option>
+              <option>J5</option>
+              <option>J6</option>
+
+              <option>M1</option>
+              <option>M2</option>
+              <option>M3</option>
+              <option>M4</option>
+
+              <option>S1</option>
+              <option>S2</option>
+              <option>S3</option>
+
+            </select>
+          </div>
+          <div class="input">
+            <span class="details">Skill:</span>
+            <textarea name="Skill">data analyst</textarea>
+            <button class="kana">+</button>
+
+          </div>
+           <div class="input-box">
+            <span class="details">Monthly Salary:</span>
+            <span name="mont" id="month"></span>
+          </div> 
+          <div class="input_fields_wrap">
+            <span class="details">Annual CTC:</span>
+            <div>
+              <input id="ja" type="date" name="mytext">
+              <input id="ba" type="text" name="mytext" onclick="return CTC()">
+              <button class="add_field_button btn">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="submit" onclick="pass();"/>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+
+    //ctc calculate
+    function CTC() {
+      var sal = document.getElementById("ba").value;
+      var lat = 12;
+      var d = sal / lat;
+      var b = document.getElementById("month").innerHTML = d;
+      console.log(b);
+    }
+
+
+    //local storage nahi chaiye
+
+    function pass()
+    {
+      var id = document.getElementById("EID").value;
+      localStorage.setItem("textvalue",id);
+      const ja=window.localStorage
+      console.log(ja)
+   
+
+      return false;
+    }
+  </script>
+
+</body>
+
+</html>
